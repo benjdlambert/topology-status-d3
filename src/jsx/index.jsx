@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './app';
+import Network from './network';
 
 export default function Index() {
     return (
@@ -8,7 +8,7 @@ export default function Index() {
                 <link rel="stylesheet" href="/static/css/network.css" />
             </head>
             <body>
-                <App />
+                <Network />
                 <script type="text/javascript" src="/dist/vendor/react.js"></script>
                 <script type="text/javascript" src="/dist/vendor/react-dom.js"></script>
                 <script type="text/javascript" src="/dist/vendor/es6-promise.js"></script>
