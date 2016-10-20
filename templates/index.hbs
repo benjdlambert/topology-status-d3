@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/dist/css/network.css" />
+    </head>
+    <body>
+        <div id="mount">
+        {{{ component }}}
+        </div>
+        <script type="text/javascript" src="/dist/vendor/react.js"></script>
+        <script type="text/javascript" src="/dist/vendor/react-dom.js"></script>
+        <script type="text/javascript" src="/dist/vendor/es6-promise.js"></script>
+        <script type="text/javascript" src="/dist/vendor/fetch.js"></script>
+        <script type="text/javascript" src="/dist/pack.js"></script>
+        <script type="text/javascript">
+            ReactDOM.render(
+                React.createElement(
+                  Index.default,
+                  {}
+                ),
+                window.mount
+            );
+        </script>
+    </body>
+</html>
