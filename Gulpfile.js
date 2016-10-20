@@ -28,6 +28,7 @@ gulp.task(
     () =>
         gulp.src('src/jsx/network.jsx')
         .pipe($.webpack({
+            entry: ['babel-polyfill', './src/jsx/network.jsx'],
             output: {
                 library: ['Index'],
                 filename: '[name].js'
@@ -68,9 +69,9 @@ gulp.task(
 )
 
 gulp.task('watch', () =>
-    $.watch('src/**', () =>
+    $.watch('src/**', () => {
         gulp.start('build')
-    )
+    })
 )
 
 gulp.task(
