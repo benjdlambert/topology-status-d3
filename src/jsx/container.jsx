@@ -4,7 +4,6 @@ import 'whatwg-fetch';
 
 import { get, set } from './state';
 
-
 export default function create(ReactComponent, config) {
     return class Container extends React.Component {
         constructor(props) {
@@ -13,9 +12,12 @@ export default function create(ReactComponent, config) {
             this.requirements = config.data(props);
         }
         async fetchData() {
-            for (let dataSource of this.requirements) {
-                console.log(dataSource);
-            }
+            const component = this;
+            const fetches = _.map(this.requirements, async function(value, k) {
+                const request = await fetch(value);
+                const json = await request.json();
+                component.setState({ [k]: value });
+            });
         }
         componentWillMount() {
             this.fetchData();

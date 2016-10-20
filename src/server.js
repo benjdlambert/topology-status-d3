@@ -30,7 +30,7 @@ app.get(
 app.get(
     '/api/network.json',
     (request, response) => {
-        return {
+        response.send({
             nodes: [
                 {
                     id: 'API',
@@ -50,7 +50,7 @@ app.get(
                     value: 1
                 }
             ]
-        }
+        })
     }
 )
 
