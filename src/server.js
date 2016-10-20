@@ -34,12 +34,12 @@ app.get(
             nodes: [
                 {
                     id: 'API',
-                    name: 'Morph API'
+                    name: 'Component API'
                     group: 1
                 },
                 {
                     id: 'Redis',
-                    name: 'Morph Redis',
+                    name: 'Component Redis',
                     group: 2
                 }
             ],
