@@ -67,6 +67,12 @@ gulp.task(
     .pipe(gulp.dest('dist'))
 )
 
+gulp.task('watch', () =>
+    $.watch('src/**', () =>
+        gulp.start('build')
+    )
+)
+
 gulp.task(
     'build',
     ['build:vendor', 'build:server', 'build:client']

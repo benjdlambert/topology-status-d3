@@ -34,7 +34,7 @@ app.get(
             nodes: [
                 {
                     id: 'API',
-                    name: 'Component API'
+                    name: 'Component API',
                     group: 1
                 },
                 {

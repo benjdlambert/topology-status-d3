@@ -8,6 +8,7 @@ import { get, set } from './state';
 export default function create(ReactComponent, config) {
     return class Container extends React.Component {
         constructor(props) {
+            super(props);
             this.state = {};
             this.requirements = config.data(props);
         }
