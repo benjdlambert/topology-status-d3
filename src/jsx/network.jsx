@@ -1,5 +1,15 @@
 import React from 'react';
 
-export default function Network() {
-    return <h1>Bello!</h1>
+import create from './container';
+
+class NetworkComponent extends React.Component {
+
 }
+
+export default create(
+    NetworkComponent, {
+        data() {
+            network: '/api/network.json'
+        }
+    }
+)

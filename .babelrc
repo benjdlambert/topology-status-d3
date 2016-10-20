@@ -1,4 +1,4 @@
 {
-    "plugins": ["transform-object-rest-spread", "transform-class-properties", "transform-react-jsx"],
+    "plugins": ["transform-object-rest-spread", "transform-class-properties", "transform-react-jsx", "transform-async-to-generator"],
     "presets": ["react", "es2015"]
 }

@@ -5,24 +5,27 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "start": "node dist/server.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-file": "^2.0.2",
+    "babel-polyfill": "^6.16.0",
     "classnames": "^2.2.5",
     "es6-promise": "^3.2.1",
     "express": "^4.14.0",
+    "handlebars": "^4.0.5",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
-    "react-router": "^2.7.0",
     "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "babel-core": "6.x",
     "babel-eslint": "6.x",
     "babel-loader": "6.x",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
     "babel-plugin-transform-class-properties": "^6.11.5",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-react-jsx": "6.x",
@@ -34,6 +37,7 @@
     "gulp-cssnano": "2.x",
     "gulp-load-plugins": "1.x",
     "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-watch": "4.x",
     "gulp-webpack": "1.x"
   }

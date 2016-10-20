@@ -1,13 +1,62 @@
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import Index from './jsx/index';
+import Handlebars from 'handlebars';
+import Network from './jsx/network';
+import fs from 'async-file';
+import path from 'path';
 
 const app = express();
-app.get('/', (request, response) =>
-    response.send(
-        ReactDOMServer.renderToString( React.createElement(Index, {}))
-    );
+
+async function loadTemplate(templateName) {
+    const templatePath = path.resolve(__dirname, '..',  'templates', `${templateName}.hbs`);
+    const fileSource =  await fs.readFile(templatePath, 'utf-8');
+    return Handlebars.compile(fileSource);
+}
+
+app.get(
+    '/',
+    async function(request, response) {
+        const template = await loadTemplate('index');
+        const component = ReactDOMServer.renderToString(
+            React.createElement(Network, {})
+        );
+        response.send(
+            template({ component })
+        );
+    }
+);
+
+app.get(
+    '/api/network.json',
+    (request, response) => {
+        return {
+            nodes: [
+                {
+                    id: 'API',
+                    name: 'Morph API'
+                    group: 1
+                },
+                {
+                    id: 'Redis',
+                    name: 'Morph Redis',
+                    group: 2
+                }
+            ],
+            links: [
+                {
+                    source: 'API',
+                    target: 'Redis',
+                    value: 1
+                }
+            ]
+        }
+    }
+)
+
+app.use(
+    '/dist',
+    express.static('dist')
 );
 
 app.listen(
