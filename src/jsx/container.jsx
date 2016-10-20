@@ -16,14 +16,21 @@ export default function create(ReactComponent, config) {
             const fetches = _.map(this.requirements, async function(value, k) {
                 const request = await fetch(value);
                 const json = await request.json();
-                component.setState({ [k]: value });
+
+                if (!_.isEqual(json, component.state[k])) {
+                    component.setState({ [k]: json });
+                }
             });
+
         }
         componentWillMount() {
             this.fetchData();
         }
         componentDidMount() {
-            //poll for changes
+            setInterval(
+                () => this.fetchData(),
+                1000
+            );
         }
         render() {
             return (

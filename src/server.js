@@ -33,21 +33,73 @@ app.get(
         response.send({
             nodes: [
                 {
-                    id: 'API',
-                    name: 'Component API',
-                    group: 1
+                    id: 0,
+                    label: 'End User',
+                    group: 'working/user'
+
                 },
                 {
-                    id: 'Redis',
-                    name: 'Component Redis',
-                    group: 2
+                    id: 1,
+                    label: 'API',
+                    group: 'working/asg'
+                },
+                {
+                    id: 2,
+                    label: 'Redis',
+                    group: 'broken/redis'
+                },
+                {
+                    id: 3,
+                    label: 'Template Renderers',
+                    group: 'broken/asg'
+                },
+                {
+                    id: 4,
+                    label: 'Service Brokers',
+                    group: 'broken/asg'
                 }
             ],
-            links: [
+            edges: [
                 {
-                    source: 'API',
-                    target: 'Redis',
-                    value: 1
+                    from: 0,
+                    to: 1,
+                    label: '/vegas',
+                    arrows: {
+                        to: {
+                            enabled: true
+                        }
+                    },
+                    color: 'green'
+                },
+                {
+                    from: 1,
+                    to: 2,
+                    arrows: {
+                        to: {
+                            enabled: true
+                        }
+                    },
+                    color: 'red'
+                },
+                {
+                    from: 3,
+                    to: 2,
+                    arrows: {
+                        to: {
+                            enabled: true
+                        }
+                    },
+                    color: 'red'
+                },
+                {
+                    from: 4,
+                    to: 2,
+                    arrows: {
+                        to: {
+                            enabled: true
+                        }
+                    },
+                    color: 'red'
                 }
             ]
         })
